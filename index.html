@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Chkooba</title>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" type="image/svg" href="data/icon.svg" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <style id="root"></style>
+    <table class="table">
+        <tr>
+            <td>
+                <div class="deck" id="mainDeck"></div>
+            </td>
+            <td id="hand_2">
+                <div id="cpu1card3_1" class="ch3"></div>
+                <div id="cpu1card3_2" class="ch3"></div>
+                <div id="cpu1card3_3" class="card"></div>
+            </td>
+            <td>
+                <div class="deck" id="team1Deck"></div>
+            </td>
+        </tr>
+        <tr>
+            <td id="hand_3">
+                <div id="cpu3card3_1" class="cv3"></div><br>
+                <div id="cpu3card3_2" class="cv3"></div><br>
+                <div id="cpu3card3_3" class="card"></div>
+            </td>
+            <td id="tableCards" class="center">
+                <div id="tableCards_1" class="cch ccv"></div>
+                <div id="tableCards_2" class="cch ccv"></div>
+                <div id="tableCards_3" class="cch ccv"></div>
+                <div id="tableCards_4" class="cch ccv"></div>
+                <div id="tableCards_5" class="ccv card"></div><br>
+                <div id="tableCards_6" class="cch card"></div>
+                <div id="tableCards_7" class="cch card"></div>
+                <div id="tableCards_8" class="cch card"></div>
+                <div id="tableCards_9" class="cch card"></div>
+                <div id="tableCards_10" class="card"></div>
+            </td>
+            <td id="hand_1">
+                <div id="cpu2card3_1" class="cv3"></div><br>
+                <div id="cpu2card3_2" class="cv3"></div><br>
+                <div id="cpu2card3_3" class="card"></div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label class="button" id="menu-btn"></label>
+            </td>
+            <td id="hand_0">
+                <div id="humancard3_1" class="ch3"></div>
+                <div id="humancard3_2" class="ch3"></div>
+                <div id="humancard3_3" class="card"></div>
+            </td>
+            <td>
+                <div id="team0Deck" class="deck"></div>
+            </td>
+        </tr>
+    </table>
+
+    <div class="menu" id="menu" hidden>
+        <label id="new-game-item" data-string-id="new-game">New game...</label>
+        <label id="settings-item" data-string-id="settings" data-dialog="settings">Settings</label>
+        <label id="chronology-item" data-string-id="chronology" data-dialog="chronology">Chronology</label>
+        <label id="summary-item" data-string-id="match-summary" data-dialog="summary">Match summary</label>
+        <label id="help-item" data-string-id="help" data-dialog="help">Help</label>
+        <label id="about-item" data-string-id="about" data-dialog="about">About</label>
+    </div>
+
+    <div class="dialog" id="new-game" hidden>
+        <div class="window">
+            <div class="titlebar">
+                <label data-string-id="new-game">New game...</label>
+                <label class="button close" data-dialog="new-game"></label>
+            </div>
+
+            <div class="content">
+                <label data-string-id="name">Name:</label>
+                <input type="text" id="userName"></input><br>
+
+                <label data-string-id="variant">Variant:</label>
+                <select id="variant"></select><br>
+
+                <label data-string-id="number-of-players">Number of players:</label>
+                <select id="numberOfPlayers"></select><br>
+
+                <button id="start-game" data-string-id="start-game">Start game</button>
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+    </div>
+
+    <div class="dialog" id="settings" hidden>
+        <div class="window">
+            <div class="titlebar">
+                <label data-string-id="settings">Settings</label>
+                <label class="button close" data-dialog="settings"></label>
+            </div>
+
+            <div class="content">
+                <label data-string-id="speed">Speed:</label>
+                <select id="speed">
+                        <option id="slow" data-string-id="slow">Slow</option>
+                        <option id="medium" data-string-id="medium">Medium</option>
+                        <option id="fast" data-string-id="fast">Fast</option>
+                    </select><br>
+            </div>
+        </div>
+    </div>
+
+    <div class="dialog" id="chronology" hidden>
+        <div class="window">
+            <div class="titlebar">
+                <label data-string-id="chronology">Chronology</label>
+                <label class="button close" data-dialog="chronology"></label>
+            </div>
+
+            <div class="content">
+                <h3 data-string-id="messages">Messages</h3>
+                <p id="messages-log"></p>
+                <h3 data-string-id="moves">Moves</h3>
+                <p id="moves-log"></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="dialog" id="help" hidden>
+        <div class="window">
+            <div class="titlebar">
+                <label data-string-id="help">Help</label>
+                <label class="button close" data-dialog="help"></label>
+            </div>
+
+            <div class="content" id="help-content">
+                <iframe id="help" width="100%" height="100%" frameborder="0" src="docs/index.html">
+                    </iframe>
+            </div>
+        </div>
+    </div>
+
+    <div class="dialog" id="about" hidden>
+        <div class="window">
+            <div class="titlebar">
+                <label data-string-id="about">About</label>
+                <label class="button close" data-dialog="about"></label>
+            </div>
+
+            <div class="content">
+
+                <p style="text-align: center">
+                    <img src="data/icon.svg" width="150px"></img>
+                </p>
+
+                <h4 style="text-align: center">
+                    Scopa
+                </h4>
+
+                <p style="text-align: center">Version 1.1.0 Alpha</p>
+
+                <p style="text-align: center">
+                    <a href="http://scopa.nongnu.org" target="_blank">http://scopa.nongnu.org</a>
+                </p>
+
+                <p style="text-align: center">Copyright © 2016 Marco Scarpetta</p>
+
+                <p>
+                    Scopa is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+                </p>
+                <p>
+                    Scopa is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+                </p>
+                <p>
+                    You should have received a copy of the GNU General Public License along with Scopa. If not, see
+                    <a href="http://www.gnu.org/licenses/" target="_blank">
+                        http://www.gnu.org/licenses/</a>.
+                </p>
+
+                <h2>Credits</h2>
+
+                <h3>Code</h3>
+                <p>Marco Scarpetta</p>
+
+                <h3>Images</h3>
+                <ul>
+                    <li>Napoletane cards: public domain images available <a href="https://commons.wikimedia.org/wiki/Category:Naples_deck" target="_blank">here</a></li>
+                    <li>Bergamasche cards: cropped from <a href="https://commons.wikimedia.org/wiki/File:Carte_bergamasche.jpg" target="_blank">this</a> public domain image</li>
+                    <li>Piacentine cards: cropped from <a href="https://commons.wikimedia.org/wiki/File:Carte_piacentine_al_completo.jpg" target="_blank">this</a> public domain image</li>
+                    <li>Poker cards: public domain images available <a href="https://commons.wikimedia.org/wiki/Category:Playing_cards_set_by_Byron_Knoll" target="_blank">here</a></li>
+                    <li>Backgrounds, icons: Marco Scarpetta</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="dialog" id="summary" hidden>
+        <div class="window">
+            <div class="titlebar">
+                <label data-string-id="match-summary">Match summary</label>
+                <label class="button close" data-dialog="summary" id="summary-close-btn"></label>
+            </div>
+
+            <div class="content">
+                <table>
+                    <tbody id="summaryTable">
+                        <tr id="players">
+                            <td data-string-id="team">Team</td>
+                        </tr>
+                        <tr id="cards">
+                            <td data-string-id="cards">الكارتة</td>
+                        </tr>
+                        <tr id="primiera">
+                            <td data-string-id="primiera">Primiera</td>
+                        </tr>
+                        <tr id="seven_of_coins">
+                            <td data-string-id="seven-of-coins">سبعة الحيّة</td>
+                        </tr>
+                        <tr id="re_bello">
+                            <td data-string-id="re-bello">Re Bello</td>
+                        </tr>
+                        <tr id="coins">
+                            <td data-string-id="coins">ديناري</td>
+                        </tr>
+                        <tr id="scopa">
+                            <td data-string-id="scopa">Scopa</td>
+                        </tr>
+                        <tr id="partial">
+                            <td data-string-id="partial">Partial</td>
+                        </tr>
+                        <tr id="total">
+                            <td data-string-id="total">Total</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p style="text-align: right">
+                    <button id="continue" data-string-id="continue">Continue</button>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="dialog" id="match-end" hidden>
+        <div class="window">
+            <div class="titlebar">
+                <label data-string-id="match-end">Match end</label>
+                <label class="button close" data-dialog="match-end" id="match-end-close-btn"></label>
+            </div>
+
+            <div class="content">
+                <h3 id="winner"></h3>
+                <label data-string-prototype="winner" hidden>Team {0} wins!</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="dialog" id="move-choice" hidden>
+        <div class="window">
+            <div class="titlebar">
+                <label data-string-id="move-choice">Select the cards you want to take:</label>
+                <label class="button close" data-dialog="move-choice"></label>
+            </div>
+
+            <div class="content">
+                <div id="choices"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="messages">
+        <label data-string-prototype="first_player" style="display:none">{0} starts!</label>
+        <label data-string-prototype="cards_value_lt_10" style="display:none">The sum of {0} cards is less then 10</label>
+        <label data-string-prototype="2_equal_cards" style="display:none">{0} has 2 equal cards</label>
+        <label data-string-prototype="3_equal_cards" style="display:none">{0} has 3 equal cards</label>
+    </div>
+
+    <script type="text/javascript" src="js/utils.js"></script>
+    <script type="text/javascript" src="js/classic.js"></script>
+    <script type="text/javascript" src="js/scopone.js"></script>
+    <script type="text/javascript" src="js/rebello.js"></script>
+    <script type="text/javascript" src="js/cucita.js"></script>
+    <script type="text/javascript" src="js/cirulla.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+</body>
+
+</html>
